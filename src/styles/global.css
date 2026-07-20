@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --color-knc-red: #e5311f;
+  --color-knc-blue: #102133;
+  --color-knc-dark: #060d14;
+}
