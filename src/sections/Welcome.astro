@@ -1,15 +1,39 @@
-<section class="py-48 flex flex-col items-center bg-knc-blue">
-  <video class="hidden" src="/assets/kncelados-intro.mp4" autoplay muted loop
-  ></video>
+<section
+  class="relative aspect-video w-full flex flex-col items-center justify-center"
+>
+  <div
+    id="video-container"
+    class="absolute bg-dark-950 inset-0 w-full z-[-1] flex items-baseline justify-center"
+  >
+    <video
+      src="/intro.webm"
+      playsinline
+      autoplay
+      muted
+      loop
+      class="size-full object-cover opacity-45"></video>
+  </div>
 
-  <p class="text-center max-w-2xl text-2xl">
-    Kncelados no es un <span class="text-knc-red">[</span>podcast<span
-      class="text-knc-red">]</span
-    >, es 10 que pasa cuando juntas a seis personas que se olvidaron de filtrar
-    10 que piensan. Aquí no venimos a educar a nadie, venimos a decir las
-    barbaridades que tú solo te atreves a pensar en el grupo de whatsapp. Si te
-    ofendes, es que no has entendido nada; si te ríes, bienvenido a la <span
-      class="text-knc-red">[</span
-    >resistencia<span class="text-knc-red">]</span>.
+  <p class="text-center max-w-4xl font-normal text-5xl leading-tight">
+    Kncelados no es un <span class="text-knc-600 font-semibold">[</span
+    >podcast<span class="text-knc-600 font-semibold">]</span>, es 10 que pasa
+    cuando juntas a seis personas que se olvidaron de filtrar 10 que piensan.
+    Aquí no venimos a educar a nadie, venimos a decir las barbaridades que tú
+    solo te atreves a pensar en el grupo de whatsapp. Si te ofendes, es que no
+    has entendido nada; si te ríes, bienvenido a la <span
+      class="text-knc-600 font-semibold">[</span
+    >resistencia<span class="text-knc-600 font-semibold">]</span>.
   </p>
 </section>
+
+<style>
+  #video-container {
+    mask-image: linear-gradient(
+      0deg,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+</style>

@@ -1,0 +1,29 @@
+<svg
+  class:list={[Astro.props.class, "line-left"]}
+  viewBox="0 0 2151.15 1020.27"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="8pt"
+  stroke-linecap="round"
+>
+  <path
+    d="M3.91 404.84C45.97 214.15 182.74 30.88 385.78 7c92.86-11.72 191.79 10.57 263.26 72.82 30.1 26.19 54.95 59.86 63.22 99.28 18.05 91.82-47.46 174.46-107.64 236.93-71.88 73.41-153.63 136.78-237.79 195.72-23.75 16.4-48.14 32.21-73.3 46.31-35.23 20.18-140.27 70.48-173.83 44.46-16.37-13.37-14.86-34.95-10.73-55.52 13.77-61.86 56.65-115.52 109.14-149.97 199.21-123.65 488.5-70.81 653.16 88.93 25.05 24.79 44.95 58.46 39.9 94.57-2.94 24.15-15.33 46.53-30.88 65.14-29.67 35.88-72.04 58.2-108.72 85.2-20.18 15.33-44.62 34.47-52.2 58.69-9.33 30.98 20.05 48.92 45.24 57.98 144.86 48.49 298.95 61.27 450.8 66.93 203.02 6.54 409.18-2.72 603.1-64.42 69.29-22.55 139.18-57.79 179.67-120.31 59.88-90.7 46.92-210.15 57.29-317.32 4.67-45.58 19.36-95.1 58.74-122.2 10.93-7.7 23.13-13.37 35.27-18.92"
+  >
+  </path>
+</svg>
+
+<style>
+  .line-left {
+    animation: draw 12s alternate both ease-in-out infinite;
+  }
+</style>
+
+<script>
+  const lineLeft = document.querySelector(".line-left") as SVGElement;
+  const length = lineLeft.querySelector("path")?.getTotalLength();
+
+  if (length) {
+    lineLeft.style.strokeDasharray = length.toString();
+    lineLeft.style.strokeDashoffset = length.toString();
+  }
+</script>

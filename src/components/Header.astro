@@ -1,9 +1,17 @@
-<header class="fixed w-full flex items-center justify-between p-4">
-  <p>logo</p>
+---
+import EmptiedLogo from "@/assets/EmptiedLogo.astro";
+---
 
-  <nav>
-    <button>
-      <span>menu</span>
-    </button>
-  </nav>
+<header class="fixed w-full flex items-center justify-between p-12">
+  <a href="/" class="hover:rotate-360 transition-transform duration-500">
+    <EmptiedLogo class="size-18 text-knc-600" />
+  </a>
+
+  <button
+    class="cursor-pointer text-xl rotate-3 hover:rotate-6 hover:scale-110 transition-transform"
+  >
+    <span class="text-knc-600">[</span>
+    <span>menu</span>
+    <span class="text-knc-600">]</span>
+  </button>
 </header>

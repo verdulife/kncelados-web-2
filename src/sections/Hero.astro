@@ -1,17 +1,99 @@
-<section class="py-72 flex flex-col items-center justify-center">
-  <h1 class="text-6xl font-bold text-center">
-    F<span class="text-knc-red">*</span>CK M<span class="text-knc-red">[</span
-    ><span class="text-knc-red">]</span>NDAYS
+---
+import LineLeft from "@/assets/LineLeft.astro";
+import LineRight from "@/assets/LineRight.astro";
+import LineBottom from "@/assets/LineBottom.astro";
+import PlayIcon from "@/assets/PlayIcon.astro";
+---
+
+<section class="py-64 flex flex-col items-center justify-center">
+  <div class="fixed -z-10 size-full opacity-10 pointer-events-none">
+    <LineLeft class="absolute top-0 left-0 scale-125 w-full -z-10" />
+    <LineRight class="absolute top-0 left-0 scale-125 w-full -z-10" />
+    <LineBottom class="absolute top-3/4 left-1/2 w-full -z-10" />
+  </div>
+
+  <h1 class="text-8xl text-center">
+    F<span class="text-knc-600">*</span>CK M<span class="text-knc-600">[</span
+    ><span id="face"></span><span class="text-knc-600">]</span>NDAYS
   </h1>
 
-  <div class="flex items-center gap-4 mt-8">
-    <a href="#" class="bg-knc-red text-white px-4 py-2 rounded-full"
-      >Ver el podcast <span
-        class="bg-black rounded-full p-2 h-full aspect-square">></span
-      ></a
+  <div class="flex items-center gap-4 mt-18 text-xs">
+    <a
+      href="#"
+      class="bg-knc-600 flex gap-6 text-dark-950 hover:scale-110 hover:-rotate-3 transition-transform items-center dark-50 px-1 py-1 pl-8 rounded-full"
     >
-    <a href="#" class="bg-neutral-800 text-white px-4 py-2 rounded-full"
-      >Colabora con nosotros</a
+      <span class="-mb-1">Ver podcast</span>
+      <span
+        class="bg-dark-950 text-dark-50 rounded-full size-11 flex items-center justify-center"
+      >
+        <PlayIcon class="size-3" />
+      </span>
+    </a>
+
+    <a
+      href="#"
+      class="bg-dark-800 flex gap-6 text-dark-50 hover:scale-110 hover:-rotate-3 transition-transform items-center dark-50 px-1 py-1 pl-8 rounded-full"
     >
+      <span class="-mb-1">Colabora con nosotros</span>
+      <span class="h-11"></span>
+    </a>
   </div>
 </section>
+
+<style>
+  #face {
+    display: inline-block;
+    width: 0;
+    height: 2em;
+    overflow: hidden;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0;
+    transform: scale(1.5);
+    transition:
+      width 0.4s ease-in-out,
+      opacity 0.3s ease-in-out;
+  }
+</style>
+
+<script>
+  const $face = document.querySelector("#face") as HTMLSpanElement;
+  const faces = [
+    "/rup.webp",
+    "/dani.webp",
+    "/ander.webp",
+    "/verdu.webp",
+    "/jose.webp",
+  ];
+
+  if ($face) {
+    let currentIndex = 0;
+    const showDuration = 3200;
+    const shrinkDuration = 800;
+
+    const playFace = (index: number) => {
+      $face.style.backgroundImage = `url('${faces[index]}')`;
+      $face.style.width = "0";
+      $face.style.opacity = "0";
+
+      requestAnimationFrame(() => {
+        $face.style.width = "2em";
+        $face.style.opacity = "1";
+      });
+
+      window.setTimeout(() => {
+        $face.style.width = "0";
+        $face.style.opacity = "0";
+
+        window.setTimeout(() => {
+          const nextIndex = (index + 1) % faces.length;
+          playFace(nextIndex);
+        }, shrinkDuration);
+      }, showDuration);
+    };
+
+    playFace(currentIndex);
+  }
+</script>

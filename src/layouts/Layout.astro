@@ -1,20 +1,67 @@
 ---
 import "@/styles/global.css";
+import "@fontsource/boldonse";
+import "@fontsource-variable/google-sans/wght.css";
+
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
+
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
-  </head>
-  <body class="bg-knc-dark text-white">
+  <meta charset="UTF-8" />
+  <meta name="description" content={description} />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1.0, viewport-fit=cover"
+  />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Kncelados" />
+  <link rel="apple-touch-icon" type="image/png" href="/mobile.png" />
+  <title>{title}</title>
+  <meta name="author" content="verdu | verdu@live.com" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:url" content="https://www.kncelados.com" />
+  <meta property="og:image" content="https://www.kncelados.com/logo-512.jpg" />
+  <meta property="og:description" content={description} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:site" content="@kncelados" />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="https://www.kncelados.com/card.jpg" />
+  <meta name="twitter:image:alt" content={title} />
+  <script type="application/ld+json" is:inline>
+    {
+      "@context": "http://schema.org/",
+      "@type": "PerformingGroup",
+      "name": "Kncelados",
+      "logo": "https://www.kncelados.com/mobile.png",
+      "url": "https://www.kncelados.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Barcelona",
+        "addressCountry": "Spain"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@kncelados",
+        "https://www.instagram.com/kncelados",
+        "https://www.tiktok.com/@kncelados",
+        "https://open.spotify.com/show/5bDQAbJUSdfHYdii8A8eX0",
+        "https://t.me/kncelados",
+        "https://www.patreon.com/kncelados"
+      ]
+    }
+  </script>
+
+  <body>
     <Header />
     <slot />
     <Footer />

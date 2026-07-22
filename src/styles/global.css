@@ -1,7 +1,67 @@
 @import "tailwindcss";
 
 @theme {
-  --color-knc-red: #e5311f;
-  --color-knc-blue: #102133;
-  --color-knc-dark: #060d14;
+  --color-knc-50: oklch(96.8% 0.011 21.3);
+  --color-knc-100: oklch(92.5% 0.031 21.1);
+  --color-knc-200: oklch(87.2% 0.059 21.7);
+  --color-knc-300: oklch(80.1% 0.098 22.6);
+  --color-knc-400: oklch(70.5% 0.163 24.1);
+  --color-knc-500: oklch(62.3% 0.207 25.9);
+  --color-knc-600: oklch(55% 0.218 27.2);
+  --color-knc-700: oklch(46.9% 0.182 27.1);
+  --color-knc-800: oklch(41% 0.147 27.1);
+  --color-knc-900: oklch(36.1% 0.118 26.7);
+  --color-knc-950: oklch(22.4% 0.076 26.2);
+
+  --color-dark-50: oklch(97.4% 0.007 202.3);
+  --color-dark-100: oklch(92.5% 0.016 203.2);
+  --color-dark-200: oklch(86.2% 0.029 206.4);
+  --color-dark-300: oklch(76.2% 0.046 207.8);
+  --color-dark-400: oklch(65.4% 0.063 210.6);
+  --color-dark-500: oklch(55.4% 0.064 214.2);
+  --color-dark-600: oklch(48.7% 0.054 217.1);
+  --color-dark-700: oklch(42.6% 0.045 220.1);
+  --color-dark-800: oklch(38% 0.038 222.3);
+  --color-dark-900: oklch(33.6% 0.032 224.3);
+  --color-dark-950: oklch(14.2% 0.007 232.4);
+
+  --font-sans: "Google Sans Variable", sans-serif;
+  --font-title: "Boldonse", sans-serif;
+}
+
+html {
+  @apply scroll-smooth;
+  cursor: url("/cursor-normal.png"), auto;
+}
+
+body {
+  @apply bg-dark-950 text-dark-50 overflow-x-clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button {
+  @apply font-title text-balance uppercase;
+}
+
+p,
+figcaption {
+  @apply text-pretty;
+}
+
+a,
+button {
+  cursor: url("/cursor-pointer.png"), auto;
+}
+
+@keyframes draw {
+  20%,
+  80% {
+    stroke-dashoffset: 0;
+  }
 }
