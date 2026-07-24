@@ -1,0 +1,133 @@
+---
+export interface Props {
+  unit: "days" | "hours" | "minutes";
+  label: string;
+  digits?: string;
+}
+
+const {
+  unit,
+  label,
+  digits = "88",
+} = Astro.props;
+
+const digitTen = digits[0] ?? "8";
+const digitOne = digits[1] ?? "8";
+
+const flipCardClass = [
+  "flip-card metal-gradient relative w-36 h-48",
+  "before:absolute before:left-0 before:top-24 before:-translate-y-1/2 before:w-3 before:h-12 before:border-t-2 before:border-r-2 before:border-b-2 border-dark-950",
+  "after:absolute after:right-0 after:top-24 after:-translate-y-1/2 after:w-3 after:h-12 after:border-t-2 after:border-l-2 after:border-b-2 border-dark-950",
+];
+
+const topLeafClass =
+  "flip-leaf flip-top bg-dark-200 w-36 flex justify-center items-start h-24 overflow-clip rounded-t-xl border-b border-dark-950 pt-8 shadow-[inset_0_-2px_2px_0_white]";
+const bottomLeafClass =
+  "flip-leaf flip-bottom bg-dark-200 w-36 flex justify-center items-end h-24 overflow-clip rounded-b-xl border-t border-dark-950 pb-8 shadow-[inset_0_2px_2px_0_white]";
+---
+
+<div class="flex flex-col gap-8 items-center" data-unit={unit}>
+  <div class="flex text-9xl text-dark-950 gap-2">
+    <div class:list={flipCardClass} data-flip-card data-digit={digitTen}>
+      <div class:list={[topLeafClass, "flip-top-static"]}>{digitTen}</div>
+      <div class:list={[topLeafClass, "flip-top-leaf"]}>{digitTen}</div>
+      <div class:list={[bottomLeafClass, "flip-bottom-static"]}>{digitTen}</div>
+      <div class:list={[bottomLeafClass, "flip-bottom-leaf"]}>{digitTen}</div>
+    </div>
+    <div class:list={flipCardClass} data-flip-card data-digit={digitOne}>
+      <div class:list={[topLeafClass, "flip-top-static"]}>{digitOne}</div>
+      <div class:list={[topLeafClass, "flip-top-leaf"]}>{digitOne}</div>
+      <div class:list={[bottomLeafClass, "flip-bottom-static"]}>{digitOne}</div>
+      <div class:list={[bottomLeafClass, "flip-bottom-leaf"]}>{digitOne}</div>
+    </div>
+  </div>
+
+  <h3 class="text-2xl">{label}</h3>
+</div>
+
+<style>
+  .metal-gradient:before,
+  .metal-gradient:after {
+    background-image: linear-gradient(
+      0deg,
+      white 0%,
+      gray 25%,
+      white 50%,
+      gray 75%,
+      white 100%
+    );
+  }
+
+  .flip-card {
+    perspective: 600px;
+    transform-style: preserve-3d;
+  }
+
+  .flip-leaf {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 50%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+
+  .flip-top {
+    top: 0;
+  }
+
+  .flip-bottom {
+    top: 50%;
+  }
+
+  .flip-top-static {
+    transform: rotateX(0deg);
+    z-index: 1;
+  }
+
+  .flip-top-leaf {
+    transform: rotateX(0deg);
+    transform-origin: bottom;
+    z-index: 2;
+  }
+
+  .flip-bottom-static {
+    transform: rotateX(0deg);
+    z-index: 1;
+  }
+
+  .flip-bottom-leaf {
+    transform: rotateX(180deg);
+    transform-origin: top;
+    z-index: 2;
+  }
+
+  .flip-card.flipping .flip-top-leaf {
+    animation: flipTop 0.6s ease-in forwards;
+  }
+  .flip-card.flipping .flip-bottom-leaf {
+    animation: flipBottom 0.6s ease-out 0.2s forwards;
+  }
+
+  @keyframes flipTop {
+    from {
+      transform: rotateX(0deg);
+    }
+    to {
+      transform: rotateX(-180deg);
+    }
+  }
+  @keyframes flipBottom {
+    from {
+      transform: rotateX(180deg);
+    }
+    to {
+      transform: rotateX(0deg);
+    }
+  }
+
+  :global(body:not(.flip-ready) [data-flip-card]) {
+    visibility: hidden;
+  }
+</style>

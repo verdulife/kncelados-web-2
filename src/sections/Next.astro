@@ -1,78 +1,45 @@
-<section class="py-48 flex flex-col items-center">
-  <div
-    class="flex items-center justify-center gap-8 text-6xl font-bold font-title"
-  >
-    <div class="flex flex-col items-center">
-      <div class="flex text-9xl">
-        <div>
-          <div>8</div>
-          <div>8</div>
-        </div>
-        <div>
-          <div>8</div>
-          <div>8</div>
-        </div>
-      </div>
-      <div>Días</div>
-    </div>
+---
+import Link from "@/components/Link.astro";
+import Youtube from "@/assets/Youtube.astro";
+import Spotify from "@/assets/Spotify.astro";
+import FlipCard from "@/components/FlipCard.astro";
+---
 
-    <div class="flex flex-col items-center">
-      <div class="flex text-9xl text-dark-950">
-        <div
-          class:list={[
-            "flex flex-col justify-start relative",
-            "before:absolute before:left-0 before:top-24 before:-translate-y-1/2 before:w-3 before:h-12 before:border-t-2 before:border-r-2 before:border-b-2 border-dark-950 before:bg-linear-to-b before:from-gray-50 before:via-gray-300 before:to-gray-50",
-            "after:absolute after:right-0 after:top-24 after:-translate-y-1/2 after:w-3 after:h-12 after:border-t-2 after:border-l-2 after:border-b-2 border-dark-950 after:bg-linear-to-b after:from-gray-50 after:via-gray-300 after:to-gray-50",
-          ]}
-        >
-          <div
-            class="bg-dark-100 w-36 flex justify-center items-start h-24 overflow-clip rounded-t-xl border-b border-dark-950 pt-8"
-          >
-            8
-          </div>
-          <div
-            class="bg-dark-100 w-36 flex justify-center items-end h-24 overflow-clip rounded-b-xl border-t border-dark-950 pb-8"
-          >
-            8
-          </div>
-        </div>
-        <div>
-          <div>8</div>
-          <div>8</div>
-        </div>
-      </div>
-      <div>Horas</div>
-    </div>
-
-    <div class="flex flex-col items-center">
-      <div class="flex text-9xl">
-        <div>
-          <div>8</div>
-          <div>8</div>
-        </div>
-        <div>
-          <div>8</div>
-          <div>8</div>
-        </div>
-      </div>
-      <div>Minutos</div>
-    </div>
+<section class="py-36 flex flex-col gap-12 items-center" data-flip-clock>
+  <div class="flex scale-90 items-center justify-center gap-8 text-6xl font-bold font-title">
+    <FlipCard unit="days" label="Días" />
+    <FlipCard unit="hours" label="Horas" />
+    <FlipCard unit="minutes" label="Minutos" />
   </div>
 
-  <h2>Lunes a las 20:00 h, o 1 día antes uniendote en Youtube</h2>
+  <p class="text-4xl text-center">
+    Lunes a las 20:00 h, o 1 día antes uniendote en nuestro canal de Youtube
+  </p>
 
   <div class="flex items-center gap-4 mt-8">
-    <a
-      href="#"
-      class="bg-knc-600 inline-flex items-center px-4 py-2 rounded-full"
-    >
-      Ver podcast
-      <span class="bg-dark-950 rounded-full p-2 h-full aspect-square">></span>
-    </a>
-    <a href="#" class="bg-neutral-800 dark-50 px-4 py-2 rounded-full"
-      >Oir podcast <span
-        class="text-dark-950 rounded-full p-2 h-full aspect-square">S</span
-      >
-    </a>
+    <Link
+      href="/links/youtube"
+      label="Ver en Youtube"
+      bgColor="bg-knc-600"
+      textColor="text-dark-950"
+      icon={Youtube}
+    />
+
+    <Link
+      href="/links/spotify"
+      label="Oir en Spotify"
+      bgColor="bg-green-600"
+      textColor="text-dark-50"
+      icon={Spotify}
+    />
   </div>
 </section>
+
+<script>
+  import { startFlipClock } from "@/scripts/flipclock";
+
+  const root = document.querySelector("[data-flip-clock]");
+  if (root instanceof HTMLElement) {
+    startFlipClock(root);
+  }
+</script>
