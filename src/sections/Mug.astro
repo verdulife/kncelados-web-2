@@ -1,23 +1,30 @@
-<section class="p-6 flex flex-col items-center">
+---
+import Link from "@/components/Link.astro";
+---
+
+<section class="py-48 px-6 flex flex-col items-center">
   <article
-    class="w-full max-w-7xl flex justify-center gap-24 items-center bg-knc-600 rounded-3xl"
+    class="w-full max-w-6xl flex justify-center gap-24 items-center bg-knc-600 rounded-3xl"
   >
     <div class="flex flex-col items-center gap-4">
       <img
         src="/taza1.webp"
         alt="Taza Kncelados"
-        class="h-92 scale-175 -rotate-12"
+        class="h-80 scale-175 -rotate-12"
       />
     </div>
 
-    <div class="flex flex-col items-start gap-4 p-6">
+    <div class="flex flex-col items-start gap-8 p-12">
       <h2 class="text-7xl font-bold leading-tight">
         LA P<span class="text-dark-950">*</span>TA<br />QUE GUAPA
       </h2>
 
-      <a href="#" class="bg-dark-50 text-dark-950 px-4 py-2 rounded-full">
-        VISITA NUETRA TIENDA
-      </a>
+      <Link
+        href="/tienda"
+        label="Consigue la tuya"
+        bgColor="bg-dark-50"
+        textColor="text-dark-950"
+      />
     </div>
   </article>
 </section>

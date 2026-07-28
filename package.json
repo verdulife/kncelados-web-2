@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/caveat": "^5.3.0",
     "@fontsource-variable/google-sans": "^5.3.0",
     "@fontsource/boldonse": "^5.3.0",
     "@lucide/astro": "^1.26.0",

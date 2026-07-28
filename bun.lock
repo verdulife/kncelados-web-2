@@ -5,6 +5,7 @@
     "": {
       "name": "kncelados-web-2",
       "dependencies": {
+        "@fontsource-variable/caveat": "^5.3.0",
         "@fontsource-variable/google-sans": "^5.3.0",
         "@fontsource/boldonse": "^5.3.0",
         "@lucide/astro": "^1.26.0",
@@ -138,6 +139,8 @@
     "@esbuild/win32-ia32": ["@esbuild/win32-ia32@0.28.1", "", { "os": "win32", "cpu": "ia32" }, "sha512-zvb/mB2bSCoJOpoCBgYKKpX6YM6mJBlBUVUtVj41DlZJVEB6/0CKlRYxP5wWl1C1ILiCoAU5wZZ4q1P3qeS6Eg=="],
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.28.1", "", { "os": "win32", "cpu": "x64" }, "sha512-bm4Mowrv+GXMlpWX++EcXw/iLyd1o3+bJkC2DkWXYVvgZCqD/bSj9ctZeAMC3cIxgjRVR2Dufaiu4YPxr5gW1A=="],
+
+    "@fontsource-variable/caveat": ["@fontsource-variable/caveat@5.3.0", "", {}, "sha512-Q3mjghoYIlXgwqBPJKZ4q6f3zu921Gq7UU76r9Z+NAmhapHfX130GIFpOCYf8vt2SIcgCi9RHDT7anfJKg/kiA=="],
 
     "@fontsource-variable/google-sans": ["@fontsource-variable/google-sans@5.3.0", "", {}, "sha512-VEwy6YigBfQ/F2PwkiZtQxA35+X5V1BpuNT15/o3dXTymbeT6YZNsy356VfqasyLJLRWoUfSrJNzbdA8RF+S+w=="],
 
